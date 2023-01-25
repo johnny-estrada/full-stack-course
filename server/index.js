@@ -9,9 +9,11 @@ const postRouter = require('./routes/Post')
 app.use('/posts', postRouter )
 
 db.sequelize.sync().then(() => {
-    app.listen(5001, () => {
-        console.log('Server is running on port 5001')
-    })
+    console.log('Database connection successful...')
+})
+
+app.listen(5001, () => {
+    console.log('Server is running on port 5001...')
 })
 
 
