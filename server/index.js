@@ -12,6 +12,9 @@ const db = require('./models')
 const postRouter = require('./routes/Post')
 app.use('/posts', postRouter )
 
+const commentsRouter = require('./routes/Comments')
+app.use('/comments', commentsRouter )
+
 db.sequelize.sync().then(() => {
     console.log('Database connection successful...')
 })
