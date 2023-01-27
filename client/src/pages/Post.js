@@ -12,7 +12,7 @@ function Post() {
   }).catch(e => {
     console.log(e)
   })
-  })
+  }, [id])
 
   return (
     <div className="postPage">
