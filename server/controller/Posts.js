@@ -1,9 +1,9 @@
-const { Posts } = require("../models");
+const { Post } = require("../models");
 
 module.exports = {
   listAction: async function (req, res) {
     try {
-      const listOfPosts = await Posts.findAll();
+      const listOfPosts = await Post.findAll();
       res.json(listOfPosts);
     } catch (error) {
       console.log(error);
@@ -12,7 +12,7 @@ module.exports = {
   detailAction: async function detailAction(req, res) {
     try {
       const id = req.params.id;
-      const post = await Posts.findByPk(id);
+      const post = await Post.findByPk(id);
       res.json(post);
     } catch (error) {
       console.log(error);
@@ -21,7 +21,7 @@ module.exports = {
   createAction: async function createAction(req, res) {
     try {
       const post = req.body;
-      await Posts.create(post);
+      await Post.create(post);
       res.json(post);
     } catch (error) {
       console.log(error);
