@@ -27,6 +27,7 @@ function Post() {
       .then((response) => {
         const comment = { commentBody: newComment };
         setComments([...comments, comment]);
+        setNewComment('')
       });
   };
 
@@ -46,6 +47,7 @@ function Post() {
             type="text"
             placeholder="Comment..."
             autoComplete="off"
+            value={newComment}
             onChange={(event) => {
               setNewComment(event.target.value);
             }}
