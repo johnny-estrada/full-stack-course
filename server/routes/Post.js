@@ -1,13 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const listAction = require('../controller/Post')
-const detailAction = require('../controller/Post')
-const createAction = require('../controller/Post')
 
-router.get('/', listAction)
+const postController = require("../controller/Posts");
 
-router.get('/byId/:id', detailAction)
+router.get("/", postController.listAction);
 
-router.post('/', createAction)
+router.get("/byId/:id", postController.detailAction);
+
+router.post("/", postController.createAction);
 
 module.exports = router;
