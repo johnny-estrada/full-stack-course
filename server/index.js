@@ -8,11 +8,9 @@ app.use(express.json())
 
 // Routers
 const postRouter = require('./routes/Post')
-
-app.use('/posts', postRouter )
-
 const commentsRouter = require('./routes/Comments')
 
+app.use('/posts', postRouter )
 app.use('/comments', commentsRouter )
 
 
