@@ -2,17 +2,22 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const db = require('./models')
 
 app.use(cors())
 app.use(express.json())
 
 // Routers
-const postRouter = require('./routes/Post')
-const commentsRouter = require('./routes/Comments')
+const postsRouter = require('./routes/posts')
+const commentsRouter = require('./routes/comments')
 
-app.use('/posts', postRouter )
+app.use('/posts', postsRouter )
 app.use('/comments', commentsRouter )
 
+
+db.sequelize.sync().then(() => {
+    console.log('Database connection successful...')
+})
 
 app.listen(5001, () => {
     console.log('Server is running on port 5001...')
